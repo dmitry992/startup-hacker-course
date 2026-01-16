@@ -49,14 +49,14 @@ const props = defineProps({
     index: { type: Number, default: null },
 });
 
-const emit = defineEmits(["edit", "remove", "update:rating"]);
+const emit = defineEmits(["edit", "remove", "update"]);
 
 const notRated = computed(() => {
     return Boolean(!props.book?.rating);
 });
 
 function updateRating(rating) {
-    emit("update:rating", props.book.id, rating);
+    emit("update", props.book.id, rating);
 }
 
 function removebook() {
