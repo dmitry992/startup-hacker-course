@@ -1,20 +1,24 @@
 <template>
-<div class="timesegment">
-    <div class="timesegment-datawrapper">
-        <div class="timesegment-number-wrapper">
-            <span class="number">0</span>
+<div class="s-timesegment">
+    <div class="s-timesegment-datawrapper">
+        <div class="s-timesegment-number-wrapper">
+            <Transition name="s-number" mode="out-in">
+              <span :key="number" class="s-number">{{number}}</span>
+            </Transition>
         </div>
-        <span class="label">{{ label }}</span>
+        <span class="s-label">{{ label }}</span>
     </div>
 </div>
 </template>
 <script setup>
 defineProps({
     label: String,
+    number: String
 });
+
 </script>
 <style scoped lang="scss">
-.timesegment {
+.s-timesegment {
 
     &-datawrapper {
         display: flex;
@@ -31,13 +35,29 @@ defineProps({
         justify-content: center;
         align-items: center;
         width: 70px;
+        overflow: hidden;
     }
 
-    .number {
+    .s-number {
         font-size: 32px;
     }
-    .label {
+    .s-label {
         font-size: 16px;
     }
 }
+.s-number-enter-active,
+.s-number-leave-active{
+  transition: .4s all ease;
+}
+
+.s-number-enter-from {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.s-number-leave-to {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
 </style>

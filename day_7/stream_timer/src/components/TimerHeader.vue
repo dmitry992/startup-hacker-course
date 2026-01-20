@@ -1,5 +1,5 @@
 <template>
-    <div class="timerheader">
+    <div class="s-timerheader">
         <h1>{{ title }}</h1>
     </div>
 </template>
@@ -9,7 +9,7 @@ const props = defineProps({
 });
 </script>
 <style scoped lang="scss">
-.timerheader {
+.s-timerheader {
     margin-bottom: 20px;
 }
 </style>
